@@ -1,6 +1,9 @@
 const express = require('express');
 const routes = require('./routes/users');
 const report = require('./routes/report');
+const classRoute = require('./routes/class')
+const attendance = require('./routes/attendance')
+const gps = require('./routes/gps')
 const mysql = require('mysql2');
 require('dotenv').config()
 
@@ -17,6 +20,9 @@ app.use(express.json());
 // Routes
 app.use('/user', routes); // Mount the routes
 app.use('/report', report);
+app.use('/class', classRoute);
+app.use('/attendance', attendance);
+app.use('/gps', gps);
 
 // Start the server
 app.listen(port, () => {

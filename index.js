@@ -5,7 +5,6 @@ const classRoute = require('./routes/class')
 const attendance = require('./routes/attendance')
 const checkIn = require('./routes/checkIn')
 const gps = require('./routes/gps')
-const email = require('./routes/email')
 const mysql = require('mysql2');
 const cors = require('cors');
 require('dotenv').config()
@@ -30,7 +29,6 @@ app.use('/class', classRoute);
 app.use('/attendance', attendance);
 app.use('/gps', gps);
 app.use('/checkin', checkIn);
-app.use('/email', email);
 
 // Start the server
 app.listen(port, () => {

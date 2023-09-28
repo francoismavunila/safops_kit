@@ -23,7 +23,10 @@ const authenticateUser = (email, password, callback) => {
         const user = results[0];
         if (user.user_password !== password) {
           // Incorrect password
-          const authenticationError = new Error('Invalid email or password');
+          const authenticationError = new Error( {
+            statusCode: 401,
+            message: 'Invalid email or password',
+          });
           console.log("wrong password")
           
           authenticationError.statusCode = 401;

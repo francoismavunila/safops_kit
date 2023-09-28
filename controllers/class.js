@@ -27,7 +27,7 @@ exports.getAllClasses = (req, res) => {
       console.error(err);
       res.status(500).json({ error: 'Failed to fetch classes' });
     } else {
-      res.status(200).json(results);
+      res.status(200).json({message:"done",data:results});
     }
   });
 };

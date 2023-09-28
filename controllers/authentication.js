@@ -15,23 +15,22 @@ const authenticateUser = (email, password, callback) => {
     } else {
       if (results.length === 0) {
         // User not found
-        const authenticationError = new Error('Invalid email or password');
-        authenticationError.statusCode = 401;
+        const authenticationError = {
+            statusCode: 401,
+            message: 'Invalid email or password',
+          };
         console.log("user not found")
-        callback(authenticationError.statusCode, null);
+        callback(authenticationError, null);
       } else {
         const user = results[0];
         if (user.user_password !== password) {
           // Incorrect password
-          const authenticationError = new Error( {
+          console.log("wrong password")
+          const authenticationError = {
             statusCode: 401,
             message: 'Invalid email or password',
-          });
-          console.log("wrong password")
-          
-          authenticationError.statusCode = 401;
-          console.log("the error is"+authenticationError.message)
-          console.log("the error  code is"+authenticationError.message)
+          };
+          console.log("the error is"+authenticationError)
           callback(authenticationError,null);
         } else {
           // User authenticated successfully

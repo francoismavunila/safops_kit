@@ -30,7 +30,8 @@ const authenticateUser = (email, password, callback) => {
           console.log("wrong password")
           
           authenticationError.statusCode = 401;
-          console.log("the error is"+authenticationError)
+          console.log("the error is"+authenticationError.message)
+          console.log("the error  code is"+authenticationError.message)
           callback(authenticationError,null);
         } else {
           // User authenticated successfully

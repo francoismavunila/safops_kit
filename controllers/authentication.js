@@ -15,7 +15,10 @@ const authenticateUser = (email, password, callback) => {
     } else {
       if (results.length === 0) {
         // User not found
-        const authenticationError = new Error('Invalid email or password');
+        const authenticationError = new Error( {
+            statusCode: 401,
+            message: 'Invalid email or password',
+          });
         authenticationError.statusCode = 401;
         console.log("user not found")
         callback(authenticationError, null);

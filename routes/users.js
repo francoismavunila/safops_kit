@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const eitController = require('../controllers/eitController');
 const authenticate = require('../controllers/authentication')
+const validateToken = require('../controllers/validate')
 
 // Define routes for EITs
 router.get('/eits', eitController.getAllEITs);
@@ -18,5 +19,12 @@ router.post('/signin',(req,res)=>{
         }
     })
 })
+
+router.get('/protected', validateToken, (req, res) => {
+    const userId = req.userId;
+    console.log("user id found")
+    console.log(userId) 
+    res.status(200).send("done");   
+  });
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./routes/users');
+const report = require('./routes/report');
 const mysql = require('mysql2');
 require('dotenv').config()
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use('/user', routes); // Mount the routes
+app.use('/report', report);
 
 // Start the server
 app.listen(port, () => {

@@ -25,7 +25,9 @@ const authenticateUser = (email, password, callback) => {
           // Incorrect password
           const authenticationError = new Error('Invalid email or password');
           console.log("wrong password")
+          
           authenticationError.statusCode = 401;
+          console.log(authenticationError)
           callback(authenticationError,null);
         } else {
           // User authenticated successfully

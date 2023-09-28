@@ -20,7 +20,10 @@ exports.createClass = (req, res) => {
 
 // Read all classes
 exports.getAllClasses = (req, res) => {
-  const query = `SELECT * FROM classes`;
+  const query = `SELECT classes.*, users.user_name, users.user_surname, location.location_name
+  FROM classes
+  LEFT JOIN users ON classes.instructor_id = users.user_id
+  LEFT JOIN location ON classes.location_id = location.location_id;`;
 
   connection.query(query, (err, results) => {
     if (err) {

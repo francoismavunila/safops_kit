@@ -3,6 +3,7 @@ const routes = require('./routes/users');
 const report = require('./routes/report');
 const classRoute = require('./routes/class')
 const attendance = require('./routes/attendance')
+const checkIn = require('./routes/checkIn')
 const gps = require('./routes/gps')
 const mysql = require('mysql2');
 const cors = require('cors');
@@ -27,6 +28,7 @@ app.use('/report', report);
 app.use('/class', classRoute);
 app.use('/attendance', attendance);
 app.use('/gps', gps);
+app.use('/checkin', checkIn);
 
 // Start the server
 app.listen(port, () => {

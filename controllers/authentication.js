@@ -36,7 +36,15 @@ const authenticateUser = (email, password, callback) => {
           // User authenticated successfully
           const token = jwt.sign({ user_id: user.user_id }, 'your_secret_key', { expiresIn: '1h' });
           console.log("user found");
-          callback(null, token);
+          var response ={
+            "token":token,
+            "userName": user.user_name,
+            "userSurname":user.user_surname,
+            "userRole":user.user_role_id,
+            "userEmail":user.user_email,
+            "message":"success"
+          }
+          callback(null, response);
         }
       }
     }

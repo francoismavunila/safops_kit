@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const gps = require('../controllers/email');
+const gps = require('../controllers/email2');
 
 // Create a report
 router.get('/', (req,res)=>{

@@ -10,12 +10,12 @@ router.post('/eits', eitController.createEIT);
 
 router.post('/signin',(req,res)=>{
     var {email,password} = req.body
-    authenticate(email,password,(error, token)=>{
+    authenticate(email,password,(error, response)=>{
         console.log("called")
         if(error){
             res.status(400).send({"error":error});
         }else{
-            res.status(200).send({message:"success",token:token})
+            res.status(200).send(response)
         }
     })
 })

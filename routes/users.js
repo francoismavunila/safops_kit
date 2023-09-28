@@ -13,7 +13,7 @@ router.post('/signin',(req,res)=>{
     authenticate(email,password,(error, token)=>{
         console.log("called")
         if(error){
-            res.status(400).send(error);
+            res.status(400).send({"error":error});
         }else{
             res.status(200).send({message:"success",token:token})
         }

@@ -19,7 +19,7 @@ const getAllEITs = () => {
 const createEIT = (firstName, lastName, email,password) => {
   return new Promise((resolve, reject) => {
     const sql = 'INSERT INTO users (user_name, user_surname, user_email,user_role_id,user_password) VALUES (?,?,?,?,?)';
-    const values = [firstName, lastName, email,1,password];
+    const values = [firstName, lastName, email,6,password];
 
     connection.query(sql, values, (error, result) => {
       if (error) {

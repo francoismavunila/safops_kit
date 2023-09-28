@@ -19,7 +19,9 @@ console.log('Connected to PlanetScale!')
 app.use(express.json());
 
 // Routes
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 app.use('/user', routes); // Mount the routes
 app.use('/report', report);
 app.use('/class', classRoute);

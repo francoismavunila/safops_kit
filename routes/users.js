@@ -26,6 +26,7 @@ router.post('/signin',(req,res)=>{
             if(error){
                 res.status(400).send({"error":error});
             }else{
+                console.log(response)
                 res.status(200).send(response)
             }
         })

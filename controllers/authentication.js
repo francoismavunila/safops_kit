@@ -38,6 +38,7 @@ const authenticateUser = (email, password, callback) => {
           console.log("user found");
           var response ={
             "token":token,
+            "userId":user.user_id,
             "userName": user.user_name,
             "userSurname":user.user_surname,
             "userRole":user.user_role_id,

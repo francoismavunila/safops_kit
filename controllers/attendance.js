@@ -166,24 +166,24 @@ exports.deleteAttendance = (req, res) => {
 
 exports.getAttendanceByFilters = (req, res) => {
     const { user_id, instructure_id, event_id, date, status } = req.query;
-    
-    let query = `SELECT * FROM attendance WHERE 1`;
+  
+    let query = `SELECT attendance.*, users.user_name AS user_name FROM attendance INNER JOIN users ON attendance.user_id = users.user_id WHERE 1`;
   
     // Add filters based on provided parameters
     const params = [];
   
     if (user_id) {
-      query += ` AND user_id = ?`;
+      query += ` AND attendance.user_id = ?`;
       params.push(user_id);
     }
   
     if (instructure_id) {
-      query += ` AND instructure_id = ?`;
+      query += ` AND attendance.instructure_id = ?`;
       params.push(instructure_id);
     }
   
     if (event_id) {
-      query += ` AND event_id = ?`;
+      query += ` AND attendance.event_id = ?`;
       params.push(event_id);
     }
   
@@ -192,12 +192,12 @@ exports.getAttendanceByFilters = (req, res) => {
       const startOfDay = new Date(date).setHours(0, 0, 0, 0) / 1000;
       const endOfDay = new Date(date).setHours(23, 59, 59, 999) / 1000;
   
-      query += ` AND dayTime >= ? AND dayTime <= ?`;
+      query += ` AND attendance.dayTime >= ? AND attendance.dayTime <= ?`;
       params.push(startOfDay, endOfDay);
     }
   
     if (status) {
-      query += ` AND status = ?`;
+      query += ` AND attendance.status = ?`;
       params.push(status);
     }
   

@@ -24,7 +24,8 @@ const getLocationIdByEventId = (eventId) => {
 
 // Create a new attendance record
 exports.createAttendance = (req, res) => {
-  const {  latitude, longitude, status, event_id } = req.body;
+  const {  latitude, longitude, event_id } = req.body;
+  const status = 1;
 
   const user_id = req.userId;
   getLocationIdByEventId(event_id)

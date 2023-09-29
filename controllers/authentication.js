@@ -34,7 +34,7 @@ const authenticateUser = (email, password, callback) => {
           callback(authenticationError,null);
         } else {
           // User authenticated successfully
-          const token = jwt.sign({ user_id: user.user_id }, 'your_secret_key', { expiresIn: '1h' });
+          const token = jwt.sign({ user_id: user.user_id }, 'your_secret_key', { expiresIn: '24h' });
           console.log("user found");
           var response ={
             "token":token,

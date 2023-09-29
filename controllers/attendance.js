@@ -57,9 +57,9 @@ exports.createAttendance = (req, res) => {
       // Process latitude and longitude as needed
       var within = gps(latitude, longitude,location_latitude,location_longitude)
   
-      if(within>10){
+      if(within>20){
         
-        res.status(300).send("You are out of bound")
+        res.status(300).json({message:"you are out of bound"})
       }else{
         const dayTime = Date.now();
         console.log(dayTime);

@@ -56,6 +56,7 @@ exports.createAttendance = (req, res) => {
       console.log('Longitude:', location_longitude);
       // Process latitude and longitude as needed
       var within = gps(latitude, longitude,location_latitude,location_longitude)
+      console.log("the distance is : ",within)
   
       if(within>20){
         

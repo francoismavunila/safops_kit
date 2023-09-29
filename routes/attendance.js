@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const tableController = require('../controllers/attendance');
+const validateToken = require('../controllers/validate')
 
 // Create a new attendance record
 router.get('/filter', tableController.getAttendanceByFilters);
-router.post('/', tableController.createAttendance);
+router.post('/',validateToken, tableController.createAttendance);
 
 // Read all attendance records
 router.get('/', tableController.getAllAttendance);

@@ -64,14 +64,14 @@ exports.createAttendance = (req, res) => {
       }else{
         const dayTime = Date.now();
         console.log(dayTime);
-      
-        const query = `INSERT INTO attendance (user_id, dayTime, latitude, longitude, status, event_id) VALUES (?, ?, ?, ?, ?, ?)`;
         console.log("u_id",user_id)
         console.log("dayTime",dayTime)
         console.log("lat",latitude)
         console.log("long",longitude)
         console.log("statu",status)
         console.log("event id", event_id)
+        const query = `INSERT INTO attendance (user_id, dayTime, latitude, longitude, status, event_id) VALUES (?, ?, ?, ?, ?, ?)`;
+     
         connection.query(query, [user_id, dayTime, latitude, longitude, status, event_id], (err, result) => {
           if (err) {
             console.error(err);
